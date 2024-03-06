@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { auth } from "./config/firebase-config";
-// import { RecoilRoot } from 'recoil';
+import { RecoilRoot } from 'recoil';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { RecoverPassword } from "./authentication/RecoverPassword";
 import { LockScreen } from "./authentication/LockScreen";
@@ -19,7 +19,7 @@ import { Groups } from "./groups/Groups";
 import "./App.css";
 import Authenticated from "./authentication/Authenticated";
 // import { Index } from "./Index";
-// import { UserProfileDetails } from "./";
+// import { UserProfileDetails } from "./UserProfileDetails/UserProfileDetails";
 // import { Swicher } from "./components/Swicher/Swicher";
 
 
@@ -51,12 +51,12 @@ function App() {
 
   return (
     <>
-           <AppContext.Provider value={{ ...context, setContext }}>
+    <AppContext.Provider value={{ ...context, setContext }}>
       {/* <RoomContext.Provider value={{ ...roomId,  setRoomId: setRoomId }}> */}
-      <RecoilRoot>
-      <Router>
+      {/* <RecoilRoot> */}
+      {/* <Router> */}
         <Routes>
-        <Route path="*" element={<Index />} />
+        {/* <Route path="*" element={<Index />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/lock-screen" element={<Authenticated> <LockScreen /> </Authenticated>} />
@@ -65,8 +65,8 @@ function App() {
           <Route path="/meta" element={<Meta />} />
           <Route path="/profile" element={<Authenticated> <Profile /> </Authenticated>} />
           <Route path="/sidebar-menu" element={<SidebarMenu />} />
+          {/* <Route path="/user-profile-details" element={<UserProfileDetails/> }/> */}
           {/* <Route path="/switcher" element={<Switcher />} /> */}
-          <Route path="/user-profile-details" element={<UserProfileDetails/> }/>
           
           {/* The routing can be adapted for the master-slave view in a similar way: */}
           {/* <Route path="/profile" element={<Index selectedTab="profile" />} /> */}
@@ -75,8 +75,8 @@ function App() {
           {/* <Route path="/settings" element={<Settings />} /> */}
         </Routes>
         <div className="App">{/* <Index /> */}</div>
-      </Router>
-      </RecoilRoot>
+      {/* </Router> */}
+      {/* </RecoilRoot> */}
       {/* </RoomContext.Provider> */}
     </AppContext.Provider>
     </>
