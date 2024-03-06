@@ -1,8 +1,7 @@
 import React, { useState, useEffect} from "react";
-import { BrowserRouter as Router, Routes, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { auth } from "./config/firebase-config";
-// import { Index } from "./Index";
-import { RecoilRoot } from 'recoil';
+// import { RecoilRoot } from 'recoil';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { RecoverPassword } from "./authentication/RecoverPassword";
 import { LockScreen } from "./authentication/LockScreen";
@@ -12,18 +11,17 @@ import { Meta } from "./meta/Meta";
 import { Profile } from "./profile/Profile";
 import { SidebarMenu } from "./sidebar-menu/Sidebar-menu";
 import { AppContext } from "./appContext/AppContext";
-// import Autentication from "./authentication/Authenticated";
 import { getUserData } from "./service/users.service";
-
-import { Chats } from "./components/Chats/Chats";
-import { UserProfileDetails } from "./components/UserProfileDetails/UserProfileDetails";
-
-
+import { Chats } from "./chats/Chats";
+import { Settings } from "./settings/Settings";
+import { Contacts } from "./contacts/Contacts";
+import { Groups } from "./groups/Groups";
 import "./App.css";
-import { Switcher } from "./components/Switcher/Switcher"
-import { Settings } from "./components/Settings/Settings";
-import { Contacts } from "./components/Contacts/Contacts";
-import { Groups } from "./components/Groups/Groups";
+import Authenticated from "./authentication/Authenticated";
+// import { Index } from "./Index";
+// import { UserProfileDetails } from "./";
+// import { Swicher } from "./components/Swicher/Swicher";
+
 
 
 function App() {

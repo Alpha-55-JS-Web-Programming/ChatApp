@@ -1,13 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { AppContext, RoomContext } from "../../appContext/AppContext";
-import { db } from "../../config/firebase-config";
+import { AppContext } from "../appContext/AppContext";
+import { db } from "../config/firebase-config";
 import { get, query, ref, push, update, orderByChild, equalTo } from "firebase/database";
 import { useNavigate, useParams } from "react-router-dom";
 import { SingleChat } from "./SingleChat";
-import { getAllUsers } from "../../service/users.service";
+import { getAllUsers } from "../service/users.service";
 import { useRecoilState } from 'recoil';
-import { currentRoomId } from "../../atom/atom";
-
+// import { currentRoomId } from '../recoil/atoms';
 
 export function Chats() {
     const { user, userData } = useContext(AppContext);

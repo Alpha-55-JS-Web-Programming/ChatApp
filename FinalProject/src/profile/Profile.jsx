@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AppContext } from "../../appContext/AppContext";
+import { AppContext } from "../appContext/AppContext";
 import { uploadProfileImage } from "../service/auth.service";
 import { updateUserData } from "../service/users.service";
 

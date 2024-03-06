@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink, Link, useLocation, useNavigate} from 'react-router-dom';
-import { Meta } from "../components/Meta/Meta";
+import { Meta } from "../meta/Meta";
 import { AppContext } from "../appContext/AppContext";
 import { loginUser } from "../service/auth.service";
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Meta } from '../components/Meta/Meta';
+import { Meta } from '../meta/Meta';
 
 export function RecoverPassword() {
   return (
