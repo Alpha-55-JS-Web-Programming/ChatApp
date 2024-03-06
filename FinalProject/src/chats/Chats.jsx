@@ -31,6 +31,7 @@ export function Chats() {
         const participants = [user?.uid, friend.uid];
         const room = await getRoom(participants);
         console.log({ room });
+       
         // setContext({ userId, friendId, roomId: room.id });
         // console.log({roomId});
         
@@ -52,6 +53,7 @@ export function Chats() {
             // });
         }
         setCurrentRoom(room.id);
+        navigate(`/rooms/${room.id}`);
         // console.log({currentRoom});
     }
     // useEffect(() => {
@@ -108,7 +110,7 @@ export function Chats() {
         // const { userId, friendId, roomId, setContext } = useContext(RoomContext);
         // setContext({ userId, friendId, roomId: roomRef.key, setContext })
         // setContext({ userId, friendId, roomId: room.id });
-
+        
         return {
             id: roomRef.key,
             ...newRoom

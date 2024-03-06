@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
 import { auth } from "./config/firebase-config";
 import { RecoilRoot } from 'recoil';
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -26,7 +26,7 @@ function App() {
     userData: null,
   });
   const [user, loading, error] = useAuthState(auth);
-
+  const { id } = useParams();
   useEffect(() => {
     if (user) {
       getUserData(user.uid)
