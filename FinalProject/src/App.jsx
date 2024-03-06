@@ -17,6 +17,8 @@ import "./App.css";
 import Authenticated from "./authentication/Authenticated";
 import { Home } from "./home/Home";
 import { Settings } from "./settings/Settings";
+import { ChatView } from "./chats/ChatView";
+
 
 function App() {
   const [context, setContext] = useState({
@@ -55,7 +57,7 @@ function App() {
 
             <Route path="/lock-screen" element={<Authenticated> <LockScreen /> </Authenticated>} />
             <Route path="/recover" element={<RecoverPassword />} />
-            <Route path="/chats/:id" element={<Chats />} />
+            <Route path="/chats/:id" element={<ChatView />} />
             <Route path="/meta" element={<Meta />} />
             <Route path="/profile" element={<Authenticated> <Profile /> </Authenticated>} />
             <Route path="/sidebar-menu" element={<SidebarMenu />} />

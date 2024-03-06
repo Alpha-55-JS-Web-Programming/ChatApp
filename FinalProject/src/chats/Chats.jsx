@@ -7,7 +7,7 @@ import { SingleChat } from "./SingleChat";
 import { getAllUsers } from "../service/users.service";
 import { useRecoilState } from 'recoil';
 import { SidebarMenu } from "../sidebar-menu/Sidebar-menu";
-// import { currentRoomId } from '../recoil/atoms';
+import { currentRoomId } from '../atom/atom';
 
 
 export function Chats() {
