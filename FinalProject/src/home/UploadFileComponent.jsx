@@ -1,5 +1,52 @@
+import { useState, useEffect, useContext } from "react";
+import { serverTimestamp } from "firebase/database";
+import { get, query, ref, update, set, onChildAdded, push } from "firebase/database";
+import { AppContext, RoomContext } from "../appContext/AppContext";
+import { db } from "../config/firebase-config";
+import { updateUserData } from "../service/users.service";
+import { uploadFile } from "../service/auth.service";
+import { UploadFileComponent } from "./UploadFileComponent";
+
+
 export function UploadFileComponent() {
-   
+  // Upload File State: Create a state to store the file and loading state.
+  const [loading, setLoading] = useState(false);
+  const [file, setFile] = useState(null);
+  const { user, userData, updateUserData } = useContext(AppContext);   
+
+  function handleUploadFile(e) {
+    if (e.target.files[0]) {
+        setFile(e.target.files[0]);
+    }
+}
+
+
+function uploadFileURL() {
+    if (!file) {
+        console.error('No file selected.');
+        return;
+    }
+    setLoading(true);
+
+
+    // Assuming uploadFile is a function that handles the file upload
+    uploadFile(file, user, setLoading)
+        .then((photoURL) => {
+            if (user) {
+                userData.fileURL = photoURL; // Update with the correct property name (e.g., fileURL)
+                updateUserData(userData?.uid, userData);
+                console.log(photoURL);
+            } else {
+                console.error('Error updating user data: User is undefined');
+            }
+
+            setLoading(false);
+        })
+        .catch((error) => {
+            console.error('Error uploading file:', error);
+            setLoading(false);
+        });
+}
     return (
 
         <div className="inline-block" title="Attached File">
