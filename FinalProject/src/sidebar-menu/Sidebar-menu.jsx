@@ -69,29 +69,22 @@ export function SidebarMenu({
           >
             {/*profile*/}
             <li className="flex-grow lg:flex-grow-0">
-              <div
-                onClick={() => onProfileClick?.()}
-                id="default-tab"
-                className={`tab-button flex relative items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${selected === "profile" ? "active" : ""
-                  }`}
-              >
-                <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
-                  <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
-                  <span className="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black rounded shadow-lg">
-                    Profile
-                  </span>
-                </div>
+              <NavLink to="/profile" id="default-tab" className={`tab-button flex relative items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer 
+                ${selected === "profile" ? "active" : ""}`}>
+                  <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
+                    <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
+                    <span className="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black rounded shadow-lg">
+                      Profile
+                    </span>
+                  </div>
                 <i className="text-2xl ri-user-2-line"></i>
-              </div>
+              </NavLink>
             </li>
 
             {/*chats*/}
             <li className="flex-grow lg:flex-grow-0">
-              <div
-                onClick={() => onChatsClick?.()}
-                className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${selected === "chats" ? "active" : ""
-                  }`}
-              >
+            <NavLink to="/chats" className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer 
+              ${selected === "chats" ? "active" : "" }`} >
                 <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
                   <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
                   <span className="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black rounded shadow-lg">
@@ -99,16 +92,13 @@ export function SidebarMenu({
                   </span>
                 </div>
                 <i className="text-2xl ri-message-3-line"></i>
-              </div>
+              </NavLink>
             </li>
 
             {/*groups*/}
             <li className="flex-grow lg:flex-grow-0">
-              <div
-                onClick={() => onGroupsClick?.()}
-                className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${selected === "groups" ? "active" : ""
-                  }`}
-              >
+            <NavLink to="/groups" onClick={() => onGroupsClick?.()} className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer
+              ${selected === "groups" ? "active" : "" }`} >
                 <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
                   <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
                   <span className="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black rounded shadow-lg">
@@ -116,16 +106,13 @@ export function SidebarMenu({
                   </span>
                 </div>
                 <i className="text-2xl ri-group-line"></i>
-              </div>
+              </NavLink>
             </li>
 
             {/*contacts*/}
             <li className="flex-grow lg:flex-grow-0">
-              <div
-                onClick={() => onContactsClick?.()}
-                className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${selected === "contacts" ? "active" : ""
-                  }`}
-              >
+            <NavLink to="/contacts" onClick={() => onContactsClick?.()} className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer
+              ${selected === "contacts" ? "active" : "" }`} >
                 <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
                   <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
                   <span className="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black rounded shadow-lg">
@@ -133,16 +120,13 @@ export function SidebarMenu({
                   </span>
                 </div>
                 <i className="text-2xl ri-contacts-line"></i>
-              </div>
+              </NavLink>
             </li>
 
             {/*settings*/}
             <li className="flex-grow lg:flex-grow-0">
-              <div
-                onClick={() => onSettingsClick?.()}
-                className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${selected === "settings" ? "active" : ""
-                  }`}
-              >
+            <NavLink to="/settings" className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer 
+              ${selected === "settings" ? "active" : "" }`} >
                 <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
                   <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
                   <span className="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black rounded shadow-lg">
@@ -150,7 +134,7 @@ export function SidebarMenu({
                   </span>
                 </div>
                 <i className="text-2xl ri-settings-2-line"></i>
-              </div>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -170,37 +154,16 @@ export function SidebarMenu({
 
             {/*profile photo*/}
             <li className="relative lg:mt-4 dropdown lg:dropup">
-              <button
-                onClick={toggleSidebarDropdown}
-                className={`${openSidebar ? "group-[.active]:rotate-180" : ""
-                  } dropdown-toggle" id="dropdownButton2" data-bs-toggle="dropdown`}
-              >
-                <img
-                  src={
-                    userData?.profilePhotoURL ||
-                    "https://thinksport.com.au/wp-content/uploads/2020/01/avatar-.jpg"
-                  }
-                  alt="Avatar"
-                  className="w-10 h-10 p-1 mx-auto rounded-full bg-gray-50 dark:bg-zinc-700"
-                />
+              <button onClick={toggleSidebarDropdown} className={`${openSidebar ? "group-[.active]:rotate-180" : "" } dropdown-toggle" id="dropdownButton2" data-bs-toggle="dropdown`} >
+                <img src={ userData?.profilePhotoURL || "https://thinksport.com.au/wp-content/uploads/2020/01/avatar-.jpg"} alt="Avatar" className="w-10 h-10 p-1 mx-auto rounded-full bg-gray-50 dark:bg-zinc-700" />
               </button>
 
               {/* Dropdown */}
-              <div
-                className={`${openSidebar ? "block" : "hidden"
-                  }`}
-                aria-labelledby="dropdownButton2"
-              >
-                <ul
-                  className="absolute bottom-5 z-40 float-left w-40 py-2 mx-4 mb-12 text-left list-none  bg-white border-none rounded-lg shadow-lg bg-clip-padding dark:bg-zinc-700"
-                  aria-labelledby="dropdownButton2"
-                >
+              <div className={`${openSidebar ? "block" : "hidden"}`} aria-labelledby="dropdownButton2">
+                <ul className="absolute bottom-5 z-40 float-left w-40 py-2 mx-4 mb-12 text-left list-none  bg-white border-none rounded-lg shadow-lg bg-clip-padding dark:bg-zinc-700" aria-labelledby="dropdownButton2">
                   {/* Profile */}
                   <li>
-                    <NavLink
-                      onClick={() => onProfileClick?.()}
-                      className="block w-full px-4 py-2 text-sm font-normal  text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100/30    dark:text-gray-100 dark:hover:bg-zinc-600/50"
-                    >
+                    <NavLink to="/profile" className="block w-full px-4 py-2 text-sm font-normal  text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100/30    dark:text-gray-100 dark:hover:bg-zinc-600/50" >
                       Profile
                       <i className="text-gray-500 rtl:float-left ltr:float-right ri-profile-line text-16"></i>
                     </NavLink>
@@ -208,10 +171,7 @@ export function SidebarMenu({
 
                   {/* Setting */}
                   <li>
-                    <NavLink
-                      onClick={() => onSettingsClick?.()}
-                      className=" block w-full px-4 py-2 text-sm font-normal   text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100/30     dark:text-gray-100 dark:hover:bg-zinc-600/50 ltr:text-left rtl:text-right"
-                    >
+                    <NavLink to="/settings" className=" block w-full px-4 py-2 text-sm font-normal   text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100/30     dark:text-gray-100 dark:hover:bg-zinc-600/50 ltr:text-left rtl:text-right" >
                       Setting
                       <i className="text-gray-500 rtl:float-left ltr:float-right ri-settings-3-line   text-16"></i>
                     </NavLink>
@@ -219,10 +179,7 @@ export function SidebarMenu({
 
                   {/* Lock Screen */}
                   <li>
-                    <NavLink
-                      to="/lock-screen"
-                      className=" block w-full px-4 py-2 text-sm font-normal   text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100/30 dark:text-gray-100 dark:hover:bg-zinc-600/50 ltr:text-left rtl:text-right"
-                    >
+                    <NavLink to="/lock-screen" className=" block w-full px-4 py-2 text-sm font-normal   text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100/30 dark:text-gray-100 dark:hover:bg-zinc-600/50 ltr:text-left rtl:text-right" >
                       Lock Screen
                       <i className="text-gray-500 rtl:float-left ltr:float-right  ri-git-repository-private-line text-16"></i>
                     </NavLink>
@@ -232,10 +189,7 @@ export function SidebarMenu({
 
                   {/* Log out */}
                   <li>
-                    <NavLink
-                      to="/login"
-                      className="block w-full px-4 py-2 text-sm font-normal text-gray-700  bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100/30 dark:text-gray-100   dark:hover:bg-zinc-600/50 ltr:text-left rtl:text-right"
-                    >
+                    <NavLink to="/login" className="block w-full px-4 py-2 text-sm font-normal text-gray-700  bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100/30 dark:text-gray-100   dark:hover:bg-zinc-600/50 ltr:text-left rtl:text-right" >
                       <button onClick={logout}>Log out</button>
                       <i className="text-gray-500 rtl:float-left ltr:float-right ri-logout-circle-r-line  text-16"></i>
                     </NavLink>
