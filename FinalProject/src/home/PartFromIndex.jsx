@@ -5,19 +5,13 @@ import { serverTimestamp } from "firebase/database";
 import { get, query, ref, update, set, onChildAdded, push } from "firebase/database";
 import { AppContext, RoomContext } from "../appContext/AppContext";
 import { Chats } from "../chats/Chats";
-import { SidebarMenu } from "../sidebar-menu/Sidebar-menu";
 import { db } from "../config/firebase-config";
-import { updateUserData } from "../service/users.service";
-import { uploadFile } from "../service/auth.service";
 import { UploadFileComponent } from "./UploadFileComponent";
 
 
 export function PartFromIndex() {
 
     const currentRoom = useRecoilValue(currentRoomId);
-    // Upload File State: Create a state to store the file and loading state.
-    const [loading, setLoading] = useState(false);
-    const [file, setFile] = useState(null);
     const { user, userData, updateUserData } = useContext(AppContext);
 console.log({currentRoom});
     // Add Message State: Create a state to store messages in the chat room.
@@ -25,39 +19,7 @@ console.log({currentRoom});
     const [messages, setMessages] = useState([]);
     const [selectedTab, setSelectedTab] = useState('chats');
 
-    function handleUploadFile(e) {
-        if (e.target.files[0]) {
-            setFile(e.target.files[0]);
-        }
-    }
-
-
-    function uploadFileURL() {
-        if (!file) {
-            console.error('No file selected.');
-            return;
-        }
-        setLoading(true);
-
-
-        // Assuming uploadFile is a function that handles the file upload
-        uploadFile(file, user, setLoading)
-            .then((photoURL) => {
-                if (user) {
-                    userData.fileURL = photoURL; // Update with the correct property name (e.g., fileURL)
-                    updateUserData(userData?.uid, userData);
-                    console.log(photoURL);
-                } else {
-                    console.error('Error updating user data: User is undefined');
-                }
-
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error('Error uploading file:', error);
-                setLoading(false);
-            });
-    }
+ 
    
     useEffect(() => {
         if (currentRoom) {

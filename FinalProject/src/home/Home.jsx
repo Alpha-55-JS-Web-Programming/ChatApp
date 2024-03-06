@@ -1,15 +1,10 @@
 import { useState, useEffect, useContext } from "react";
-import { useRecoilValue } from 'recoil';
-import { currentRoomId } from "../atom/atom";
-import { serverTimestamp } from "firebase/database";
 import { get, query, ref, update, set, onChildAdded, push } from "firebase/database";
 import { AppContext, RoomContext } from "../appContext/AppContext";
-import { Chats } from "../chats/Chats";
 import { SidebarMenu } from "../sidebar-menu/Sidebar-menu";
 import { PartFromIndex } from "./PartFromIndex";
 import { db } from "../config/firebase-config";
-import { updateUserData } from "../service/users.service";
-import { uploadFile } from "../service/auth.service";
+
 
 // import { Chats } from "../components/Chats/Chats";
 // import { Contacts } from "../components/Contacts/Contacts";
