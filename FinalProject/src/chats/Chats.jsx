@@ -19,6 +19,8 @@ export function Chats() {
     let { id } = useParams();
 
     const [currentRoom, setCurrentRoom] = useRecoilState(currentRoomId);
+//if :id is present in the URL, then set the currentRoom to that id
+//if not, then display Select a friend to chat with
 
     // const { userId, friendId, roomId, setContext } = useContext(RoomContext);
     const [room, setRoom] = useState({

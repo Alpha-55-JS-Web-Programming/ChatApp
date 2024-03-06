@@ -7,9 +7,12 @@ import { AppContext, RoomContext } from "../appContext/AppContext";
 import { Chats } from "../chats/Chats";
 import { db } from "../config/firebase-config";
 import { UploadFileComponent } from "./UploadFileComponent";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 export function PartFromIndex() {
+    const navigate = useNavigate();
+    let { id } = useParams();
 
     const currentRoom = useRecoilValue(currentRoomId);
     const { user, userData, updateUserData } = useContext(AppContext);
@@ -23,7 +26,8 @@ console.log({currentRoom});
    
     useEffect(() => {
         if (currentRoom) {
-          const roomRef = ref(db, `rooms/${currentRoom}/messages`);
+        //   const roomRef = ref(db, `rooms/${currentRoom}/messages`);
+        const roomRef = ref(db, `rooms/${id}/messages`);// useParams
           const queryRef = query(roomRef);
           const unsubscribe = onChildAdded(queryRef, (snapshot) => {
             const messageData = snapshot.val();

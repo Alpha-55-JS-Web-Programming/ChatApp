@@ -57,7 +57,7 @@ function App() {
 
             <Route path="/lock-screen" element={<Authenticated> <LockScreen /> </Authenticated>} />
             <Route path="/recover" element={<RecoverPassword />} />
-            <Route path="/chats/:id" element={<ChatView />} />
+            <Route path="/chats/:id?" element={<ChatView />} />
             <Route path="/meta" element={<Meta />} />
             <Route path="/profile" element={<Authenticated> <Profile /> </Authenticated>} />
             <Route path="/sidebar-menu" element={<SidebarMenu />} />
