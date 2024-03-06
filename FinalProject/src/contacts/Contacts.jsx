@@ -2,10 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { get, query, orderByChild, equalTo, ref, update } from 'firebase/database';
-import { db } from '../config/firebase-config';
-import { auth } from '../config/firebase-config';
+import { db, auth } from '../config/firebase-config';
 import { AppContext } from '../appContext/AppContext';
-import { updateUserData, getUserByUid } from '../service/users.service';
+import { updateUserData } from '../service/users.service';
 
 export function Contacts() {
   const { userData } = useContext(AppContext);
@@ -18,21 +17,21 @@ export function Contacts() {
 
   useEffect(() => {
     if (!user) return;
-  
+
     const currentUser = getUserByUid(user.uid).then(r => r.val());
-  
+
     currentUser
       .then(user => {
         const sentRequests = user.sentRequests || {};
-  
+
         if (!Array.isArray(sentRequests)) {
           // Convert object to array
           const sentRequestsArray = Object.values(sentRequests);
-  
+
           const sentRequestsPromise = Promise.all(
             sentRequestsArray.map((uid) => getUserByUid(user.uid).then(r => ({ ...r.val(), type: 'sent' })))
           );
-  
+
           return sentRequestsPromise;
         } else {
           return [];
@@ -44,7 +43,7 @@ export function Contacts() {
           console.error('sentRequestsData is not an array:', sentRequestsData);
           return;
         }
-  
+
         setFriendRequests(sentRequestsData.map(({ uid, username, type }) => ({ uid, username, type })));
       })
       .catch(error => {

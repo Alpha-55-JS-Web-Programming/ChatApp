@@ -1,8 +1,8 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getAuth, updateEmail } from 'firebase/auth';
-import { auth } from '../config/firebase-config';
-import { storage } from '../config/firebase-config';
+import { auth, storage } from '../config/firebase-config';
 import { uploadBytes, ref as storageRef, getDownloadURL } from "firebase/storage";
 import { updateUserData, updateUserEmail } from './users.service';
+
 export const registerUser = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password);
 };

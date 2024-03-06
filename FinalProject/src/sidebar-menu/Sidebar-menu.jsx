@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { logoutUser } from "../service/auth.service";
 import { AppContext } from "../appContext/AppContext";
 
@@ -73,9 +72,8 @@ export function SidebarMenu({
               <div
                 onClick={() => onProfileClick?.()}
                 id="default-tab"
-                className={`tab-button flex relative items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${
-                  selected === "profile" ? "active" : ""
-                }`}
+                className={`tab-button flex relative items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${selected === "profile" ? "active" : ""
+                  }`}
               >
                 <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
                   <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
@@ -91,9 +89,8 @@ export function SidebarMenu({
             <li className="flex-grow lg:flex-grow-0">
               <div
                 onClick={() => onChatsClick?.()}
-                className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${
-                  selected === "chats" ? "active" : ""
-                }`}
+                className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${selected === "chats" ? "active" : ""
+                  }`}
               >
                 <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
                   <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
@@ -109,9 +106,8 @@ export function SidebarMenu({
             <li className="flex-grow lg:flex-grow-0">
               <div
                 onClick={() => onGroupsClick?.()}
-                className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${
-                  selected === "groups" ? "active" : ""
-                }`}
+                className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${selected === "groups" ? "active" : ""
+                  }`}
               >
                 <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
                   <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
@@ -127,9 +123,8 @@ export function SidebarMenu({
             <li className="flex-grow lg:flex-grow-0">
               <div
                 onClick={() => onContactsClick?.()}
-                className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${
-                  selected === "contacts" ? "active" : ""
-                }`}
+                className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${selected === "contacts" ? "active" : ""
+                  }`}
               >
                 <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
                   <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
@@ -145,9 +140,8 @@ export function SidebarMenu({
             <li className="flex-grow lg:flex-grow-0">
               <div
                 onClick={() => onSettingsClick?.()}
-                className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${
-                  selected === "settings" ? "active" : ""
-                }`}
+                className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer ${selected === "settings" ? "active" : ""
+                  }`}
               >
                 <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
                   <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
@@ -178,9 +172,8 @@ export function SidebarMenu({
             <li className="relative lg:mt-4 dropdown lg:dropup">
               <button
                 onClick={toggleSidebarDropdown}
-                className={`${
-                  openSidebar ? "group-[.active]:rotate-180" : ""
-                } dropdown-toggle" id="dropdownButton2" data-bs-toggle="dropdown`}
+                className={`${openSidebar ? "group-[.active]:rotate-180" : ""
+                  } dropdown-toggle" id="dropdownButton2" data-bs-toggle="dropdown`}
               >
                 <img
                   src={
@@ -194,9 +187,8 @@ export function SidebarMenu({
 
               {/* Dropdown */}
               <div
-                className={`${
-                  openSidebar ? "block" : "hidden"
-                }`}
+                className={`${openSidebar ? "block" : "hidden"
+                  }`}
                 aria-labelledby="dropdownButton2"
               >
                 <ul

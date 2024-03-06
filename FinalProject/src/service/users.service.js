@@ -1,7 +1,6 @@
 import { get, set, ref, query, equalTo, orderByChild, update, getDatabase, push, child } from 'firebase/database';
-import { db } from '../config/firebase-config';
+import { db, auth } from '../config/firebase-config';
 import { format } from 'date-fns';
-import { auth } from '../config/firebase-config';
 
 export const getAllUsers = async () => {
   const snapshot = await get(query(ref(db, "users")));
