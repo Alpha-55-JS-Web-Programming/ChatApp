@@ -46,13 +46,13 @@ export function SidebarMenu({
     <>
       <div className="sidebar-menu w-full lg:w-[75px] shadow lg:flex lg:flex-col flex flex-row justify-between items-center fixed lg:relative z-40 bottom-0 bg-white dark:bg-zinc-600 ">
         <div className="hidden lg:my-5 lg:block">
-          <NavLink to="../index/index.jsx" className="block dark:hidden">
+          <NavLink to="/home" className="block dark:hidden">
             <span>
               {/* <img src="../../../public/assets/images/logo.svg" alt="" className="h-[30px]" /> */}
             </span>
           </NavLink>
 
-          <NavLink to="../index/index.jsx" className="hidden dark:block">
+          <NavLink to="/home" className="hidden dark:block">
             <span>
               {/* <img src="../../../public/assets/images/logo.svg" alt="" className="h-[30px]" /> */}
             </span>

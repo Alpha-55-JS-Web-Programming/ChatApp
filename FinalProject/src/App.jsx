@@ -15,6 +15,7 @@ import { getUserData } from "./service/users.service";
 import { Chats } from "./chats/Chats";
 import "./App.css";
 import Authenticated from "./authentication/Authenticated";
+import { Home } from "./home/Home";
 
 function App() {
   const [context, setContext] = useState({
@@ -46,6 +47,7 @@ function App() {
       <RecoilRoot>
         <Router> {/* Un-commented Router component to wrap Routes */}
           <Routes>
+            <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/lock-screen" element={<Authenticated> <LockScreen /> </Authenticated>} />
