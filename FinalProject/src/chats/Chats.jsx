@@ -6,7 +6,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { SingleChat } from "./SingleChat";
 import { getAllUsers } from "../service/users.service";
 import { useRecoilState } from 'recoil';
+import { SidebarMenu } from "../sidebar-menu/Sidebar-menu";
 // import { currentRoomId } from '../recoil/atoms';
+
 
 export function Chats() {
     const { user, userData } = useContext(AppContext);
@@ -143,6 +145,7 @@ export function Chats() {
 
     return (
         <>
+        <SidebarMenu />
             <div>
                 <div className="px-6 pt-6">
                     <h4 className="mb-0 text-gray-700 dark:text-gray-50">Chats</h4>
