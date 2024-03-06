@@ -5,7 +5,6 @@ import { AppContext, RoomContext } from "../appContext/AppContext";
 import { db } from "../config/firebase-config";
 import { updateUserData } from "../service/users.service";
 import { uploadFile } from "../service/auth.service";
-import { UploadFileComponent } from "./UploadFileComponent";
 
 
 export function UploadFileComponent() {
