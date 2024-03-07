@@ -1,8 +1,8 @@
-import { ModalVideoCall, ModalAudioCall } from "./ModalVideoCall";
+import { ModalVideoCall } from "./ModalVideoCall";
+import { ModalAudioCall } from "./ModalAudioCall";
 
+export function ChatUserHead({ userData }) {
 
-export function ChatUserHead({ user, onClick }) {
-    
     return (
         <div className="p-4 border-b border-gray-100 lg:p-6 dark:border-zinc-600">
                             <div className="grid items-center grid-cols-12">

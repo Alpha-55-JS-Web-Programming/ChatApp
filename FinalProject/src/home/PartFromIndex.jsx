@@ -128,7 +128,7 @@ export function PartFromIndex() {
                     {/* <!-- start chat conversation section --> */}
 
                     <div className="relative w-full overflow-hidden ">
-                    <ChatUserHead  user={user} onClick={onClick}></ChatUserHead>
+                    <ChatUserHead  user={userData} ></ChatUserHead>
                         {/* <!-- end chat user head --> */}
 
                         {/* <!-- start chat conversation --> */}
