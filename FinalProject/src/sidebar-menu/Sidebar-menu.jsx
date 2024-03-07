@@ -97,7 +97,7 @@ export function SidebarMenu({
 
             {/*groups*/}
             <li className="flex-grow lg:flex-grow-0">
-            <NavLink to="/groups" onClick={() => onGroupsClick?.()} className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer
+            <NavLink to="/groups" className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer
               ${selected === "groups" ? "active" : "" }`} >
                 <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
                   <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
@@ -111,7 +111,7 @@ export function SidebarMenu({
 
             {/*contacts*/}
             <li className="flex-grow lg:flex-grow-0">
-            <NavLink to="/contacts" onClick={() => onContactsClick?.()} className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer
+            <NavLink to="/contacts" className={`tab-button relative flex items-center justify-center mx-auto h-14 w-14 leading-[14px] group/tab my-2 rounded-lg cursor-pointer
               ${selected === "contacts" ? "active" : "" }`} >
                 <div className="absolute items-center hidden -top-10 ltr:left-0 group-hover/tab:flex rtl:right-0">
                   <div className="absolute -bottom-1 left-[40%] w-3 h-3 rotate-45 bg-black"></div>
