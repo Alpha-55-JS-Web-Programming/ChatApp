@@ -59,7 +59,6 @@ function App() {
             <Route path="/groups" element={<Groups />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/chats/:id?" element={<ChatView />} />
-            <Route path="/chats" element={<Chats />} />
             <Route path="/profile" element={<Authenticated> <Profile /> </Authenticated>} />
             <Route path="/sidebar-menu" element={<SidebarMenu />} />
 
