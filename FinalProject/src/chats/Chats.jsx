@@ -6,7 +6,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { SingleChat } from "./SingleChat";
 import { getAllUsers } from "../service/users.service";
 import { useRecoilState } from 'recoil';
-import { SidebarMenu } from "../sidebar-menu/Sidebar-menu";
 import { currentRoomId } from '../atom/atom';
 
 
@@ -31,6 +30,9 @@ export function Chats() {
 
     const selectFriend = async (friend) => {
         const participants = [user?.uid, friend.uid];
+        try {
+            
+        
         const room = await getRoom(participants);
         console.log({ room });
        
@@ -55,8 +57,13 @@ export function Chats() {
             // });
         }
         setCurrentRoom(room.id);
-        navigate(`/rooms/${room.id}`);
-        // console.log({currentRoom});
+        console.log({currentRoom});
+        if (room.id) {
+            navigate(`/rooms/${room.id}`);
+        }
+    } catch (error) {
+        console.error("Error selecting friend:", error);
+    }
     }
     // useEffect(() => {
     //     console.log("Current Room in useEffect:", currentRoom);
@@ -149,7 +156,6 @@ export function Chats() {
 
     return (
         <>
-        <SidebarMenu />
             <div>
                 <div className="px-6 pt-6">
                     <h4 className="mb-0 text-gray-700 dark:text-gray-50">Chats</h4>

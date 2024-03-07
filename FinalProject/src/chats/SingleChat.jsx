@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 
-export function SingleChat({ user, roomId, onClick }) {
+export function SingleChat({ user, onClick }) {
 
   return (
     <>
