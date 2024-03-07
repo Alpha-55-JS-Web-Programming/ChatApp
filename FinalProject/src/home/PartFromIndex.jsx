@@ -69,7 +69,7 @@ export function PartFromIndex() {
 
     useEffect(() => {
         try {
-            if (currentRoom) {
+            if (id) {
 
                 //   const roomRef = ref(db, `rooms/${currentRoom}/messages`);
                 const roomRef = ref(db, `rooms/${id}/messages`);// useParams
@@ -135,6 +135,7 @@ export function PartFromIndex() {
                         <div className="h-[80vh] p-4 lg:p-6">
                             {/* {fetching Messages} */}
                             <ul className="mb-0">
+                                { id ? () => checkRoomMessages(id) : <p>Select a friend to start a chat.</p>}
                                 {messages.length > 0 &&
                                     messages.map((message) => (
                                         <li key={message.messageId} className="clear-both py-4" >
@@ -169,20 +170,12 @@ export function PartFromIndex() {
                                                 </div>
                                             </div>
                                         </li>
-
                                     ))
                                 }
                             </ul>
                             {/* {End of fetching Messages} */}
-
-
                         </div>
                         {/* <!-- end chat conversation end --> */}
-
-
-
-
-
                         {/* <!-- start chat input section --> */}
                         <div className="z-40 w-full p-6 mb-0 bg-white border-t lg:mb-1 border-gray-50 dark:bg-zinc-800 dark:border-zinc-700">
                             <div className="flex gap-2">
