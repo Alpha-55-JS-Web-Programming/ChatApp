@@ -3,22 +3,24 @@ import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-
 import { auth } from "./config/firebase-config";
 import { RecoilRoot } from 'recoil';
 import { useAuthState } from "react-firebase-hooks/auth";
+import { AppContext } from "./appContext/AppContext";
+import { getUserData } from "./service/users.service";
 import { RecoverPassword } from "./authentication/RecoverPassword";
+import Authenticated from "./authentication/Authenticated";
+import { SidebarMenu } from "./sidebar-menu/Sidebar-menu";
+import { Meta } from "./meta/Meta";
 import { LockScreen } from "./authentication/LockScreen";
 import { Login } from "./authentication/Login";
 import { Register } from "./authentication/Register";
-import { Meta } from "./meta/Meta";
 import { Profile } from "./profile/Profile";
-import { SidebarMenu } from "./sidebar-menu/Sidebar-menu";
-import { AppContext } from "./appContext/AppContext";
-import { getUserData } from "./service/users.service";
-import { Chats } from "./chats/Chats";
-import "./App.css";
-import Authenticated from "./authentication/Authenticated";
-import { Home } from "./home/Home";
-import { Settings } from "./settings/Settings";
 import { ChatView } from "./chats/ChatView";
+import { Groups } from "./groups/Groups";
+import { Contacts } from "./contacts/Contacts";
+import { Home } from "./home/Home";
+import { Chats } from "./chats/Chats";
+import { Settings } from "./settings/Settings";
 
+import "./App.css";
 
 function App() {
   const [context, setContext] = useState({
@@ -53,14 +55,17 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/settings" element={<Register />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/groups" element={<Groups />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/chats/:id?" element={<ChatView />} />
+            <Route path="/chats" element={<Chats />} />
+            <Route path="/profile" element={<Authenticated> <Profile /> </Authenticated>} />
+            <Route path="/sidebar-menu" element={<SidebarMenu />} />
 
             <Route path="/lock-screen" element={<Authenticated> <LockScreen /> </Authenticated>} />
             <Route path="/recover" element={<RecoverPassword />} />
-            <Route path="/chats/:id?" element={<ChatView />} />
             <Route path="/meta" element={<Meta />} />
-            <Route path="/profile" element={<Authenticated> <Profile /> </Authenticated>} />
-            <Route path="/sidebar-menu" element={<SidebarMenu />} />
           </Routes>
         </Router>
       </RecoilRoot>
