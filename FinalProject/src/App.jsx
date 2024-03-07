@@ -50,7 +50,7 @@ function App() {
       <RecoilRoot>
         <Router> {/* Un-commented Router component to wrap Routes */}
           <Routes>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/settings" element={<Register />} />
