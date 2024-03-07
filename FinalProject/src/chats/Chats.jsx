@@ -59,7 +59,7 @@ export function Chats() {
         setCurrentRoom(room.id);
         console.log({currentRoom});
         if (room.id) {
-            navigate(`/rooms/${room.id}`);
+            navigate(`/chats/${room.id}`);
         }
     } catch (error) {
         console.error("Error selecting friend:", error);

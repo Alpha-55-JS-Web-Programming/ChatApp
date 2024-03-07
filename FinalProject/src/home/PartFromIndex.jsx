@@ -24,8 +24,52 @@ console.log({currentRoom});
 
  
     // navigate(`/rooms/${room.id}`);
+    const checkRoomMessages = async(id = id)=> {
+        const roomRef = ref(db, `rooms/${id}`);
+    
+        try {
+            // Attempt to read data from roomRef
+            const snapshot = await get(roomRef);
+    
+            // Check if the data exists
+            if (snapshot.exists()) {
+                // Data exists, you can proceed
+                console.log("Data exists:", snapshot.val());
+                
+                // If you need to check for the messages node
+                const messagesRef = child(roomRef, 'messages');
+                const messagesSnapshot = await get(messagesRef);
+                if (messagesSnapshot.exists()) {
+                    console.log("Messages exist:", messagesSnapshot.val());
+                } else {
+                    console.log("No messages yet in this room.");
+                }
+            } else {
+                console.log("Room does not exist.");
+                // Handle the case where the room doesn't exist yet
+            }
+        } catch (error) {
+            // Handle any errors
+            console.error("Error accessing roomRef:", error);
+        }
+    }
+    
+    // Call the function with the ID of the room you want to check
+    // const roomId = "yo_room_id";
+    // checkRoomMessages(roomId);ur
+    
+
+
+
+
+
+
+
+    
     useEffect(() => {
+        try {
         if (currentRoom) {
+                
         //   const roomRef = ref(db, `rooms/${currentRoom}/messages`);
         const roomRef = ref(db, `rooms/${id}/messages`);// useParams
           const queryRef = query(roomRef);
@@ -40,10 +84,14 @@ console.log({currentRoom});
           return () => {
             unsubscribe();
           };
+       
         } else {
           // If there's no current room, clear the messages
           setMessages([]);
         }
+    } catch (error) {
+        console.log("Error accessing roomRef:", error);
+    }
       }, [currentRoom]);
       
       const handleInputMessage = (e) => {
@@ -247,7 +295,7 @@ console.log({currentRoom});
                             {/* <!-- end chat user head --> */}
 
                             {/* <!-- start chat conversation --> */}
-                            <div className="h-[80vh] p-4 lg:p-6" data-simplebar>
+                            <div className="h-[80vh] p-4 lg:p-6">
                                {/* {fetching Messages} */}
                                <ul className="mb-0">
                                     {messages.length > 0 &&
