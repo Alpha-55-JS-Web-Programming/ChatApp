@@ -23,7 +23,7 @@ console.log({currentRoom});
     const [selectedTab, setSelectedTab] = useState('chats');
 
  
-   
+    // navigate(`/rooms/${room.id}`);
     useEffect(() => {
         if (currentRoom) {
         //   const roomRef = ref(db, `rooms/${currentRoom}/messages`);
