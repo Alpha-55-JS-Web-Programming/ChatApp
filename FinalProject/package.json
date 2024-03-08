@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dytesdk/react-web-core": "^1.36.2",
     "@popperjs/core": "^2.11.8",
     "@tailwindcss/forms": "^0.5.7",
     "date-fns": "^3.3.1",
     "firebase": "^10.8.0",
     "react": "^18.2.0",
+    "react-big-calendar": "^1.11.1",
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
     "react-router-dom": "^6.22.1",
