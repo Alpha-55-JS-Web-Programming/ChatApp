@@ -19,7 +19,8 @@ import { Contacts } from "./contacts/Contacts";
 import { Home } from "./home/Home";
 import { Chats } from "./chats/Chats";
 import { Settings } from "./settings/Settings";
-
+import { Meeting } from "./views/Meeting";
+import { DyteProvider, useDyteClient } from '@dytesdk/react-web-core';
 import "./App.css";
 
 function App() {
@@ -29,6 +30,16 @@ function App() {
   });
   const [user, loading, error] = useAuthState(auth);
   const { id } = useParams();
+  const [meeting, initMeeting] = useDyteClient();
+  useEffect(() => {
+    initMeeting({
+      authToken: '<auth-token>',
+      defaults: {
+        audio: true,
+        video: false,
+      },
+    });
+  }, []);
   useEffect(() => {
     if (user) {
       getUserData(user.uid)
@@ -50,6 +61,7 @@ function App() {
   return (
     <AppContext.Provider value={{ ...context, setContext }}>
       <RecoilRoot>
+      <DyteProvider value={meeting}>
         <Router> {/* Un-commented Router component to wrap Routes */}
           <Routes>
             <Route path="/" element={<Home />} />
@@ -61,12 +73,13 @@ function App() {
             <Route path="/chats/:id?" element={<ChatView />} />
             <Route path="/profile" element={<Authenticated> <Profile /> </Authenticated>} />
             <Route path="/sidebar-menu" element={<SidebarMenu />} />
-
+            <Route path="/meet" element={<Meeting />} />
             <Route path="/lock-screen" element={<Authenticated> <LockScreen /> </Authenticated>} />
             <Route path="/recover" element={<RecoverPassword />} />
             <Route path="/meta" element={<Meta />} />
           </Routes>
         </Router>
+        </DyteProvider>
       </RecoilRoot>
     </AppContext.Provider>
   );
